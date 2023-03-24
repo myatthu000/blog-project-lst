@@ -1,3 +1,3 @@
 # Laravel Blog Project
 
-##All concepts cover
+## All concepts cover
