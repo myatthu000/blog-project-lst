@@ -1,6 +1,7 @@
-@if( route('user.band') !== request()->url())
+@if( route('user.band') !== request()->url() || route('login') !== request()->url() || route('register') !== request()->url())
     <div class="">
         <div class="list-group m-0 rounded-0">
+{{--            {{ route('login') === request()->url() }}--}}
             <div class="mb-2"><h4>Categories</h4></div>
             <a class="list-group-item {{ request()->url() === route('page.index') ? 'active' : '' }}" href="{{ route('page.index') }}">All Categories</a>
             @forelse($categories as $category)

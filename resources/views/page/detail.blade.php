@@ -18,11 +18,27 @@
             </div>
             <hr>
             @isset($post->photos)
-                @foreach($post->photos as $photo)
-                    <div class="d-inline my-2">
-                        <img src="{{ asset("storage/".$post->user_id."/multiple_photos/".$photo->name) }}" class="" style="height: 150px;" alt="">
+                <div class="my-2">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach($post->photos as $key=>$photo)
+                                <div class="carousel-item {{ $key===0 ? 'active':'' }}">
+                                    <a class="venobox" data-gall="myGallery" href="{{ asset("storage/".$post->user_id."/multiple_photos/".$photo->name) }}">
+                                        <img src="{{ asset("storage/".$post->user_id."/multiple_photos/".$photo->name) }}"  class="d-block w-100 image-posts-detail" style="height: 150px;" alt="">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                @endforeach
+                </div>
             @endisset
             <div class="">
                 {{ $post->description }}

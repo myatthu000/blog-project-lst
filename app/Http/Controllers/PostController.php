@@ -146,8 +146,8 @@ class PostController extends Controller
 
             Photo::query()->insert($photos_array);
 //            $post->user()->notify(new PostNotification($post));
-            $user->notify(new PostNotification($post));
-//            Notification::send($user_authors,new PostNotification($post));
+//            $user->notify(new PostNotification($post));
+            Notification::send($user_authors,new PostNotification($post));
 
             DB::commit();
 

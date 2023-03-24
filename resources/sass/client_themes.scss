@@ -1,3 +1,18 @@
-//@import '~bootstrap/scss/bootstrap';
-//
-//@import "~bootstrap-icons";
+@import "~bootstrap-icons";
+@import "~venobox";
+
+@import "boostwatch_variables";
+$carousel-control-color: $primary;
+
+@import '~bootstrap/scss/bootstrap';
+
+@import "bootswatch_lux";
+
+.image-posts-detail{
+    height: 250px;
+    object-fit: contain;
+}
+
+.vbox-grab .vbox-child img {
+    height:500px;
+}

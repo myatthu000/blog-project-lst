@@ -6,15 +6,14 @@
 
     <title>{{ config('app.name', 'Blog') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
 {{--    <link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
 {{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+    <link rel="stylesheet" href="{{ asset('css/client_themes.css') }}">
     @yield('css')
 
 </head>
@@ -31,10 +30,16 @@
                 <div class="col-6">
                     @yield('content')
                 </div>
-                <div class="col-3">@include('client_template.right_sidebar')</div>
+                <div class="col-3">
+                    <div class=" {{ route('login') !== request()->url() && route('register') !== request()->url() && redirect('/password/reset/{?id}') !== request()->url() ? '' : 'd-none' }}">
+                        @include('client_template.right_sidebar')
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </div>
+
+<script src="{{ asset('js/client_themes.js') }}"></script>
 </body>
 </html>
